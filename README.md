@@ -11,3 +11,9 @@ Games Dashboard is the home for five browser games by [Chris Awad](https://githu
 | <img src="icons/boxes.png" width="48" height="48" alt=""> [Box Game — Dots and Boxes](https://chrisawad.github.io/Box-Game/) | Connect neighboring dots to claim boxes. Closing the fourth side earns another turn. Capture more boxes than your opponent to win. | Solo vs AI · Local PvP · Online PvP · Invite link, Six-character room code, QR code, Public matchmaking |
 
 The [game catalog](catalog.json) includes each game’s play URL, source repository, description, play modes, and launcher artwork. Each icon in [icons](icons) comes from the corresponding game’s published web app manifest.
+
+## Dashboard brief
+
+Use **Ultimate Games** for the page heading, browser title, and installed dashboard name. Build a mobile-friendly game library with the deep violet and lavender gradients of Tic Tac Toe and the indigo, plum, and soft pink glow of Glow Words. Keep the original game artwork and give each card a readable description, play modes, and a direct Play link.
+
+Give the dashboard its own launcher icon, manifest identity, and service worker scoped to `/Games-Dashboard/`. Cache the game catalog and icons for offline browsing. Launch games as top-level pages at their own addresses. Each game handles its own installation through its existing install action or the browser’s native install or Add to Home Screen feature.
