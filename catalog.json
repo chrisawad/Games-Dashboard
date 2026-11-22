@@ -1,0 +1,77 @@
+[
+  {
+    "id": "arrow-cube",
+    "title": "Arrow Cube",
+    "description": "Rotate a 3D cube to find a clear exit for each arrow. Clear every face to unlock a larger puzzle.",
+    "modes": [
+      "Solo puzzle"
+    ],
+    "playUrl": "https://chrisawad.github.io/arrow-cube/",
+    "repositoryUrl": "https://github.com/chrisawad/arrow-cube",
+    "icon": "icons/arrow-cube.png",
+    "sourceIcon": "https://chrisawad.github.io/arrow-cube/icons/arrow-cube-corner-v2-192.png"
+  },
+  {
+    "id": "bus-jam",
+    "title": "Bus Jam",
+    "description": "Send buses out of a crowded depot in the direction of their roof arrows. Match buses to waiting passengers by color before the stops fill up.",
+    "modes": [
+      "Solo puzzle"
+    ],
+    "playUrl": "https://chrisawad.github.io/Bus-Game/",
+    "repositoryUrl": "https://github.com/chrisawad/Bus-Game",
+    "icon": "icons/bus-jam.png",
+    "sourceIcon": "https://chrisawad.github.io/Bus-Game/icons/icon-192.png"
+  },
+  {
+    "id": "glow-words",
+    "title": "Glow Words",
+    "description": "Trace hidden words in a glowing letter garden. Choose a reading level, grid size, and word count, then play at your own pace or against the clock.",
+    "modes": [
+      "Solo word search"
+    ],
+    "playUrl": "https://chrisawad.github.io/GlowWords/",
+    "repositoryUrl": "https://github.com/chrisawad/GlowWords",
+    "icon": "icons/glow-words.png",
+    "sourceIcon": "https://chrisawad.github.io/GlowWords/icons/glow-192.png"
+  },
+  {
+    "id": "tic-tac-toe",
+    "title": "Tic Tac Toe",
+    "description": "Line up three marks before your opponent. Challenge T-3PO on three difficulty levels, pass one screen between two players, or invite a friend for a match.",
+    "modes": [
+      "Solo vs AI",
+      "Local PvP",
+      "Online PvP"
+    ],
+    "onlineJoin": [
+      "Invite link",
+      "Room code",
+      "QR code"
+    ],
+    "playUrl": "https://chrisawad.github.io/Tic-Tac-Toe/",
+    "repositoryUrl": "https://github.com/chrisawad/Tic-Tac-Toe",
+    "icon": "icons/tic-tac-toe.png",
+    "sourceIcon": "https://chrisawad.github.io/Tic-Tac-Toe/icons/icon-192.png"
+  },
+  {
+    "id": "boxes",
+    "title": "Box Game — Dots and Boxes",
+    "description": "Connect neighboring dots to claim boxes. Closing the fourth side earns another turn. Capture more boxes than your opponent to win.",
+    "modes": [
+      "Solo vs AI",
+      "Local PvP",
+      "Online PvP"
+    ],
+    "onlineJoin": [
+      "Invite link",
+      "Six-character room code",
+      "QR code",
+      "Public matchmaking"
+    ],
+    "playUrl": "https://chrisawad.github.io/Box-Game/",
+    "repositoryUrl": "https://github.com/chrisawad/Box-Game",
+    "icon": "icons/boxes.png",
+    "sourceIcon": "https://chrisawad.github.io/Box-Game/icons/board-192.png"
+  }
+]
