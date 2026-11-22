@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#18141f">
+  <meta name="description" content="Browse and play five puzzle, word, and strategy games by Chris Awad.">
+  <meta name="apple-mobile-web-app-title" content="Ultimate Games">
+  <title>Ultimate Games</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" href="./icons/ultimate-games-192.png">
+  <link rel="apple-touch-icon" href="./icons/ultimate-games-180.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#library">Skip to games</a>
+  <main class="page">
+    <header class="hero">
+      <div class="skyline" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <h1>Ultimate <span>Games</span></h1>
+        <p>Pick a puzzle, find a word, or challenge a friend.</p>
+        <button class="install" id="install" type="button" hidden>
+          <span class="download" aria-hidden="true">↓</span> Install app
+        </button>
+        <span role="status" class="install-status" id="install-status"></span>
+      </div>
+    </header>
+    <section id="library" tabindex="-1" aria-labelledby="library-heading">
+      <div class="toolbar">
+        <div class="section-title">
+          <span class="shelf-symbol" aria-hidden="true"></span>
+          <h2 id="library-heading">Game library</h2>
+          <span class="count" id="count" hidden></span>
+        </div>
+        <label class="filter" hidden>
+          <span class="visually-hidden">Filter games by play mode</span>
+          <select id="mode"><option value="">All play modes</option></select>
+        </label>
+      </div>
+      <p id="catalog-status" class="visually-hidden" role="status">Loading games…</p>
+      <noscript><p>Enable JavaScript to browse the library, or use the <a href="https://github.com/chrisawad/Games-Dashboard#ultimate-games">game links in the README</a>.</p></noscript>
+      <div class="games" id="games"></div>
+    </section>
+    <footer>
+      <span>Games by <a href="https://github.com/chrisawad">Chris Awad</a></span>
+      <span>Opening a game for the first time may require a connection.</span>
+    </footer>
+  </main>
+  <template id="game-template">
+    <article class="card">
+      <div class="cover"><img class="game-icon" width="100" height="100" alt=""></div>
+      <div class="card-body">
+        <h3></h3>
+        <p class="description"></p>
+        <ul class="modes" aria-label="Play modes"></ul>
+        <details hidden>
+          <summary>Online play options</summary>
+          <ul class="join-options"></ul>
+        </details>
+        <div class="actions">
+          <a class="play" target="_top"><span class="play-symbol" aria-hidden="true"></span>Play</a>
+          <a class="source">Source</a>
+        </div>
+      </div>
+    </article>
+  </template>
+</body>
+</html>

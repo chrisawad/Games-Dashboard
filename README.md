@@ -1,5 +1,7 @@
 # Ultimate Games
 
+[Play Ultimate Games](https://chrisawad.github.io/Games-Dashboard/)
+
 Games Dashboard is the home for five browser games by [Chris Awad](https://github.com/chrisawad). Choose a game below to play it on its own site. To keep a game on your home screen, open it and use its install action or your browser’s install menu.
 
 | Game | How to play | Players |

@@ -1,0 +1,17 @@
+{
+  "id": "/Games-Dashboard/",
+  "name": "Ultimate Games",
+  "short_name": "Ultimate Games",
+  "description": "A collection of five browser games by Chris Awad.",
+  "lang": "en",
+  "start_url": "/Games-Dashboard/",
+  "scope": "/Games-Dashboard/",
+  "display": "standalone",
+  "background_color": "#18141f",
+  "theme_color": "#18141f",
+  "icons": [
+    { "src": "./icons/ultimate-games-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/ultimate-games-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/ultimate-games-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
