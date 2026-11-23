@@ -6,7 +6,7 @@
     "modes": [
       "Solo puzzle"
     ],
-    "playUrl": "https://chrisawad.github.io/arrow-cube/",
+    "playUrl": "https://cube.chrisawad.com/",
     "repositoryUrl": "https://github.com/chrisawad/arrow-cube",
     "icon": "icons/arrow-cube.png",
     "sourceIcon": "https://chrisawad.github.io/arrow-cube/icons/arrow-cube-corner-v2-192.png"
@@ -18,7 +18,7 @@
     "modes": [
       "Solo puzzle"
     ],
-    "playUrl": "https://chrisawad.github.io/Bus-Game/",
+    "playUrl": "https://buses.chrisawad.com/",
     "repositoryUrl": "https://github.com/chrisawad/Bus-Game",
     "icon": "icons/bus-jam.png",
     "sourceIcon": "https://chrisawad.github.io/Bus-Game/icons/icon-192.png"
@@ -30,7 +30,7 @@
     "modes": [
       "Solo word search"
     ],
-    "playUrl": "https://chrisawad.github.io/GlowWords/",
+    "playUrl": "https://words.chrisawad.com/",
     "repositoryUrl": "https://github.com/chrisawad/GlowWords",
     "icon": "icons/glow-words.png",
     "sourceIcon": "https://chrisawad.github.io/GlowWords/icons/glow-192.png"
@@ -49,7 +49,7 @@
       "Room code",
       "QR code"
     ],
-    "playUrl": "https://chrisawad.github.io/Tic-Tac-Toe/",
+    "playUrl": "https://tictactoe.chrisawad.com/",
     "repositoryUrl": "https://github.com/chrisawad/Tic-Tac-Toe",
     "icon": "icons/tic-tac-toe.png",
     "sourceIcon": "https://chrisawad.github.io/Tic-Tac-Toe/icons/icon-192.png"
@@ -69,7 +69,7 @@
       "QR code",
       "Public matchmaking"
     ],
-    "playUrl": "https://chrisawad.github.io/Box-Game/",
+    "playUrl": "https://boxes.chrisawad.com/",
     "repositoryUrl": "https://github.com/chrisawad/Box-Game",
     "icon": "icons/boxes.png",
     "sourceIcon": "https://chrisawad.github.io/Box-Game/icons/board-192.png"
