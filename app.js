@@ -78,7 +78,7 @@ window.addEventListener("beforeinstallprompt", event => {
 window.addEventListener("appinstalled", () => {
   installed = true;
   installPrompt = undefined;
-  installStatus.textContent = "Ultimate Games is installed.";
+  installStatus.textContent = "Games Dashboard is installed.";
   updateInstallButton();
 });
 standalone.addEventListener("change", updateInstallButton);
@@ -105,6 +105,39 @@ installButton.addEventListener("click", async () => {
     installButton.removeAttribute("aria-disabled");
     updateInstallButton();
   }
+});
+
+const shareButton = document.querySelector("#share");
+const shareLink = document.querySelector("#share-link");
+const shareStatus = document.querySelector("#share-status");
+const dashboardUrl = document.querySelector('link[rel="canonical"]').href;
+
+shareButton.hidden = false;
+shareButton.addEventListener("click", async () => {
+  shareStatus.textContent = "";
+  shareLink.hidden = true;
+  if (typeof navigator.share === "function") {
+    try {
+      await navigator.share({ title: document.title, url: dashboardUrl });
+      return;
+    } catch (error) {
+      if (error.name === "AbortError") return;
+    }
+  }
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(dashboardUrl);
+      shareStatus.textContent = "Dashboard link copied.";
+      return;
+    } catch {
+      // Browsers can deny clipboard access even when they expose the API.
+    }
+  }
+  shareStatus.textContent = "Copy this link to share Ultimate Games.";
+  shareLink.value = dashboardUrl;
+  shareLink.hidden = false;
+  shareLink.focus();
+  shareLink.select();
 });
 
 if ("serviceWorker" in navigator) {

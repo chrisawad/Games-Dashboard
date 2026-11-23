@@ -1,7 +1,7 @@
 {
   "id": "/Games-Dashboard/",
-  "name": "Ultimate Games",
-  "short_name": "Ultimate Games",
+  "name": "Games Dashboard",
+  "short_name": "Games Dashboard",
   "description": "A collection of five browser games by Chris Awad.",
   "lang": "en",
   "start_url": "/Games-Dashboard/",

@@ -37,10 +37,38 @@ a { color: var(--lavender); text-underline-offset: .22em; }
   white-space: nowrap;
 }
 .skip-link:focus { position: absolute; top: 8px; left: 8px; z-index: 3; padding: .65rem 1rem; background: #241936; }
-.page {
+.frame {
   width: min(100%, 81rem);
   margin-inline: auto;
-  padding: clamp(1rem, 3vw, 2.5rem) max(env(safe-area-inset-right), clamp(1rem, 3.5vw, 3rem)) max(1rem, env(safe-area-inset-bottom)) max(env(safe-area-inset-left), clamp(1rem, 3.5vw, 3rem));
+  padding-inline: max(env(safe-area-inset-left), clamp(1rem, 3.5vw, 3rem)) max(env(safe-area-inset-right), clamp(1rem, 3.5vw, 3rem));
+}
+.page { padding-block: clamp(1rem, 2.2vw, 1.8rem) max(1rem, env(safe-area-inset-bottom)); }
+.topbar {
+  padding-block: max(.7rem, env(safe-area-inset-top)) .7rem;
+  border-bottom: 1px solid var(--edge);
+  background: linear-gradient(105deg, #2c2238, #241c30 65%, #35243a);
+}
+.topbar-row, .topbar-actions { display: flex; align-items: center; }
+.topbar-row { justify-content: space-between; gap: .75rem; }
+.topbar-title {
+  margin: 0;
+  font: 800 clamp(1.4rem, 3.3vw, 2.75rem)/1.05 var(--display);
+  letter-spacing: -.055em;
+}
+.topbar-actions { flex-shrink: 0; gap: .5rem; }
+.bar-status { margin: 0; text-align: right; color: #efe2ff; }
+.bar-status:not(:empty) { margin-top: .5rem; }
+#share-link {
+  display: block;
+  width: min(100%, 25rem);
+  min-height: 44px;
+  margin: .4rem 0 0 auto;
+  padding: .5rem .75rem;
+  border: 1px solid #8c74a1;
+  border-radius: .5rem;
+  color: #fcf8ff;
+  background: #241c30;
+  font: inherit;
 }
 
 .hero {
@@ -70,11 +98,12 @@ h1, h2, h3 { font-family: var(--display); margin: 0; }
 h1 { font-size: clamp(3rem, 6.3vw, 5.8rem); line-height: 1; font-weight: 800; letter-spacing: -.066em; }
 h1 span { color: #e0bbff; }
 .hero-copy > p { color: #e6dbef; font-size: clamp(1rem, 1.55vw, 1.18rem); margin: .75rem 0 0; }
-.install {
+.bar-button {
   display: inline-flex;
   align-items: center;
   gap: .55rem;
-  margin-top: 1.15rem;
+  justify-content: center;
+  min-width: 44px;
   min-height: 44px;
   padding: .45rem 1rem;
   border: 1px solid #8c74a1;
@@ -84,10 +113,10 @@ h1 span { color: #e0bbff; }
   font-weight: 650;
   cursor: pointer;
 }
-.install:hover { background: #534062; }
-.download { line-height: .88; border-bottom: 1.5px solid; padding: 0 .12em .1em; font-weight: 700; }
-.install-status { display: block; color: #efe2ff; }
-.install-status:not(:empty) { margin-top: .5rem; }
+.bar-button:hover { background: #534062; }
+.share-button { color: #271737; background: #d7b6f8; border-color: #d7b6f8; }
+.share-button:hover { background: #ebd5ff; }
+.bar-button svg { flex: none; }
 
 #library { margin-top: clamp(1.8rem, 3vw, 2.6rem); }
 .toolbar, .section-title, .actions { display: flex; align-items: center; }
@@ -167,14 +196,15 @@ footer a { display: inline-flex; min-height: 44px; align-items: center; }
   .hero-copy { max-width: 63%; }
 }
 @media (max-width: 40rem) {
-  .page { padding-top: max(1rem, env(safe-area-inset-top)); }
+  .topbar-row { gap: .5rem; }
+  .topbar-actions { gap: .375rem; }
+  .bar-button { padding-inline: .625rem; font-size: .875rem; white-space: nowrap; }
   .hero { align-items: flex-end; min-height: auto; padding: 9.6rem 1.25rem 1.3rem; }
   .skyline { width: 100%; bottom: auto; height: 10.6rem; background-position: 66% 40%; background-size: auto 100%;
     background-color: #251a3d; mask-image: linear-gradient(black 65%, transparent); }
   .hero-copy { max-width: none; }
   h1 { font-size: clamp(2.5rem, 9.5vw, 3.7rem); }
   .hero-copy > p { margin-top: .45rem; }
-  .install { margin-top: .8rem; }
   .games { grid-template-columns: 1fr; }
   .cover { min-height: 8rem; }
   .game-icon { width: 5.75rem; height: 5.75rem; }
@@ -183,6 +213,11 @@ footer a { display: inline-flex; min-height: 44px; align-items: center; }
   select { font-size: .875rem; }
   footer { display: block; }
   footer > span { display: block; }
+}
+@media (max-width: 23rem) {
+  .topbar-title { font-size: 1.25rem; }
+  .topbar-actions { gap: .25rem; }
+  .bar-button { gap: .3rem; padding-inline: .375rem; }
 }
 @media (forced-colors: active) {
   .play { border: 1px solid LinkText; }

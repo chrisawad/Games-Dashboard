@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#18141f">
   <meta name="description" content="Browse and play five puzzle, word, and strategy games by Chris Awad.">
-  <meta name="apple-mobile-web-app-title" content="Ultimate Games">
+  <meta name="apple-mobile-web-app-title" content="Games Dashboard">
   <title>Ultimate Games</title>
+  <link rel="canonical" href="https://chrisawad.github.io/Games-Dashboard/">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" type="image/png" href="./icons/ultimate-games-192.png">
   <link rel="apple-touch-icon" href="./icons/ultimate-games-180.png">
@@ -15,16 +16,39 @@
 </head>
 <body>
   <a class="skip-link" href="#library">Skip to games</a>
-  <main class="page">
+  <header class="topbar">
+    <div class="frame">
+      <div class="topbar-row">
+        <p class="topbar-title">Dashboard</p>
+        <div class="topbar-actions">
+          <button class="bar-button" id="install" type="button" hidden>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/>
+            </svg>
+            Install app
+          </button>
+          <button class="bar-button share-button" id="share" type="button" hidden>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="m18 5-12 7 12 7" fill="none" stroke="currentColor" stroke-width="2.25"/>
+              <circle cx="18" cy="5" r="3.5"/>
+              <circle cx="6" cy="12" r="3.5"/>
+              <circle cx="18" cy="19" r="3.5"/>
+            </svg>
+            Share
+          </button>
+        </div>
+      </div>
+      <p class="bar-status" id="install-status" role="status"></p>
+      <p class="bar-status" id="share-status" role="status"></p>
+      <input id="share-link" type="url" aria-label="Dashboard link to copy" readonly hidden>
+    </div>
+  </header>
+  <main class="page frame">
     <header class="hero">
       <div class="skyline" aria-hidden="true"></div>
       <div class="hero-copy">
         <h1>Ultimate <span>Games</span></h1>
         <p>Pick a puzzle, find a word, or challenge a friend.</p>
-        <button class="install" id="install" type="button" hidden>
-          <span class="download" aria-hidden="true">↓</span> Install app
-        </button>
-        <span role="status" class="install-status" id="install-status"></span>
       </div>
     </header>
     <section id="library" tabindex="-1" aria-labelledby="library-heading">

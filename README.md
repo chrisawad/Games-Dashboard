@@ -16,6 +16,6 @@ The [game catalog](catalog.json) includes each game’s play URL, source reposit
 
 ## Dashboard brief
 
-Use **Ultimate Games** for the page heading, browser title, and installed dashboard name. Build a mobile-friendly game library with the deep violet and lavender gradients of Tic Tac Toe and the indigo, plum, and soft pink glow of Glow Words. Keep the original game artwork and give each card a readable description, play modes, and a direct Play link.
+Use **Ultimate Games** for the page heading and browser title, **Dashboard** for the top bar, and **Games Dashboard** for the installed app name. Build a mobile-friendly game library with the deep violet and lavender gradients of Tic Tac Toe and the indigo, plum, and soft pink glow of Glow Words. Keep the original game artwork and give each card a readable description, play modes, and a direct Play link.
 
 Give the dashboard its own launcher icon, manifest identity, and service worker scoped to `/Games-Dashboard/`. Cache the game catalog and icons for offline browsing. Launch games as top-level pages at their own addresses. Each game handles its own installation through its existing install action or the browser’s native install or Add to Home Screen feature.
