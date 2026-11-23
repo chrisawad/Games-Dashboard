@@ -184,6 +184,20 @@ summary { cursor: pointer; min-height: 44px; align-content: center; }
 .play:active { background: #bd9de6; }
 .play-symbol { width: 0; height: 0; border-block: .34rem solid transparent; border-left: .54rem solid currentColor; }
 .source { padding-inline: .4rem; color: #c8b8d6; font-size: .875rem; }
+#update-dialog {
+  width: min(25rem, calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  padding: 1.5rem;
+  border: 1px solid #8c74a1;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #382745, #251e30);
+  color: #fcf8ff;
+  box-shadow: 0 1rem 3rem #100a1a88;
+}
+#update-dialog::backdrop { background: #100b19b8; }
+#update-detail { margin: .8rem 0 1.3rem; color: var(--muted); }
+.update-actions, .update-tools { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.update-tools { width: 100%; margin-bottom: .55rem; }
 footer {
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; column-gap: 1.5rem;
   border-top: 1px solid #44394d; margin-top: 2rem; padding-block: .85rem;

@@ -1,6 +1,6 @@
 // Bump this version when shipping changes to the offline library.
 const CACHE_PREFIX = "ultimate-games-dashboard::";
-const CACHE_NAME = CACHE_PREFIX + "v6";
+const CACHE_NAME = CACHE_PREFIX + "v7";
 const root = self.registration.scope;
 const absolute = path => new URL(path, root).href;
 const indexUrl = absolute("index.html");
@@ -23,6 +23,10 @@ self.addEventListener("install", event => {
     await cache.addAll(files.map(file => new Request(absolute(file), { cache: "reload" })));
     await cache.put(catalogUrl, response);
   })());
+});
+
+self.addEventListener("message", event => {
+  if (event.data?.type === "APPLY_DASHBOARD_UPDATE") event.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener("activate", event => {

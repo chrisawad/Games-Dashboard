@@ -140,8 +140,113 @@ shareButton.addEventListener("click", async () => {
   shareLink.select();
 });
 
+function watchUpdates(registration) {
+  const workers = navigator.serviceWorker;
+  const dialog = document.querySelector("#update-dialog");
+  const detail = document.querySelector("#update-detail");
+  const apply = document.querySelector("#apply-update");
+  const check = document.querySelector("#check-update");
+  const status = document.querySelector("#update-status");
+  const description = detail.textContent;
+  let pageController = workers.controller;
+  let offeredWorker;
+  let checking = false;
+  let retryTimer;
+
+  function availableUpdate() {
+    if (registration.active && registration.waiting) return registration.waiting;
+    // Another window can activate an update while this page is still showing the old UI.
+    return pageController && workers.controller !== pageController ? workers.controller : null;
+  }
+
+  function showUpdate(force = false) {
+    const worker = availableUpdate();
+    if (!worker) return false;
+    check.textContent = "Update available";
+    status.textContent = "";
+    if (!document.hidden && !dialog.open && (force || worker !== offeredWorker)) {
+      offeredWorker = worker;
+      detail.textContent = description;
+      dialog.showModal();
+    }
+    return true;
+  }
+
+  function watchInstall() {
+    const worker = registration.installing;
+    if (!worker) return;
+    worker.addEventListener("statechange", () => {
+      if (worker.state === "installed") showUpdate();
+      if (worker.state === "redundant" && !availableUpdate() && status.textContent) {
+        status.textContent = "The update couldn’t finish. Try checking again.";
+      }
+    });
+  }
+
+  async function checkForUpdates(manual = false) {
+    if (document.hidden || showUpdate(manual)) return;
+    if (manual) status.textContent = "Checking for updates…";
+    if (checking || registration.installing) return;
+    if (!navigator.onLine) {
+      if (manual) status.textContent = "Connect to the internet to check for updates.";
+      return;
+    }
+    checking = true;
+    try {
+      await registration.update();
+      if (!showUpdate(manual) && !registration.installing && status.textContent) {
+        status.textContent = "Games Dashboard is up to date.";
+      }
+    } catch {
+      if (status.textContent) status.textContent = "Couldn’t check for updates. Try again when connected.";
+    } finally {
+      checking = false;
+    }
+  }
+
+  workers.addEventListener("controllerchange", () => {
+    if (!pageController) {
+      pageController = workers.controller;
+      if (!availableUpdate()) status.textContent = "";
+      return;
+    }
+    if (apply.disabled) {
+      clearTimeout(retryTimer);
+      window.location.reload();
+    } else {
+      showUpdate();
+    }
+  });
+
+  apply.addEventListener("click", () => {
+    const waiting = registration.waiting;
+    if (!waiting) {
+      window.location.reload();
+      return;
+    }
+    apply.disabled = true;
+    detail.textContent = "Applying the update…";
+    retryTimer = setTimeout(() => {
+      apply.disabled = false;
+      detail.textContent = "The update hasn’t finished. Try Update now again.";
+    }, 15000);
+    waiting.postMessage({ type: "APPLY_DASHBOARD_UPDATE" });
+  });
+
+  registration.addEventListener("updatefound", watchInstall);
+  watchInstall();
+  check.addEventListener("click", () => checkForUpdates(true));
+  const checkOnReturn = () => checkForUpdates();
+  document.addEventListener("visibilitychange", checkOnReturn);
+  window.addEventListener("focus", checkOnReturn);
+  window.addEventListener("online", checkOnReturn);
+  window.setInterval(checkOnReturn, 5 * 60 * 1000);
+  document.querySelector("#update-tools").hidden = false;
+  checkForUpdates();
+}
+
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./sw.js", { scope: "./" }).catch(error => {
+  navigator.serviceWorker.register("./sw.js", { scope: "./", updateViaCache: "none" }).then(watchUpdates).catch(error => {
     console.error("Offline browsing could not be enabled.", error);
   });
 }

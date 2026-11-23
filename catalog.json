@@ -56,7 +56,7 @@
   },
   {
     "id": "boxes",
-    "title": "Box Game — Dots and Boxes",
+    "title": "Boxes",
     "description": "Connect neighboring dots to claim boxes. Closing the fourth side earns another turn. Capture more boxes than your opponent to win.",
     "modes": [
       "Solo vs AI",
