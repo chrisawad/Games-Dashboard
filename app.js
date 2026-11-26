@@ -72,6 +72,7 @@ const appleMobile = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
 const android = /Android/i.test(navigator.userAgent);
 const framed = window.self !== window.top;
 const standalone = window.matchMedia("(display-mode: standalone)");
+const dashboardLaunch = new URLSearchParams(location.search).get("launch") === "dashboard";
 let installPrompt;
 let installed = false;
 let listedAsInstalled = false;
@@ -90,7 +91,7 @@ function canInstall() {
 }
 
 function updateInstallButton() {
-  const inInstalledWindow = !framed && (standalone.matches || navigator.standalone === true);
+  const inInstalledWindow = dashboardLaunch && !framed && (standalone.matches || navigator.standalone === true);
   const native = canInstall();
   installButton.hidden = installed || listedAsInstalled || inInstalledWindow;
   installHelp.hidden = installButton.hidden || !helpOpen || Boolean(installPrompt && !framed);

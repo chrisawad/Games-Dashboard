@@ -1,6 +1,6 @@
 // Bump this version when shipping changes to the offline library.
 const CACHE_PREFIX = "ultimate-games-dashboard::";
-const CACHE_NAME = CACHE_PREFIX + "v11";
+const CACHE_NAME = CACHE_PREFIX + "v12";
 const root = self.registration.scope;
 const absolute = path => new URL(path, root).href;
 const indexUrl = absolute("index.html");
