@@ -1,6 +1,6 @@
 // Bump this version when shipping changes to the offline library.
 const CACHE_PREFIX = "ultimate-games-dashboard::";
-const CACHE_NAME = CACHE_PREFIX + "v8";
+const CACHE_NAME = CACHE_PREFIX + "v9";
 const root = self.registration.scope;
 const absolute = path => new URL(path, root).href;
 const indexUrl = absolute("index.html");
@@ -9,7 +9,7 @@ const shell = [
   "index.html", "styles.css", "app.js", "manifest.webmanifest",
   "assets/bricolage-latin.woff2", "assets/arcade-night.png",
   "assets/arrow-cube-cover.png", "assets/bus-jam-cover.png", "assets/glow-words-cover.png",
-  "assets/tic-tac-toe-cover.png", "assets/boxes-cover.png",
+  "assets/tic-tac-toe-cover.png", "assets/boxes-cover.png", "assets/queens-cover.webp",
   "icons/ultimate-games-180.png", "icons/ultimate-games-192.png", "icons/ultimate-games-512.png"
 ];
 

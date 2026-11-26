@@ -73,5 +73,17 @@
     "repositoryUrl": "https://github.com/chrisawad/Box-Game",
     "icon": "icons/boxes.png",
     "sourceIcon": "https://chrisawad.github.io/Box-Game/icons/board-192.png"
+  },
+  {
+    "id": "queens",
+    "title": "Queens",
+    "description": "Place seven queens so each row, column, and colored region has exactly one. No two queens may touch, even diagonally.",
+    "modes": [
+      "Solo puzzle"
+    ],
+    "playUrl": "https://queens.chrisawad.com/",
+    "repositoryUrl": "https://github.com/chrisawad/Queens",
+    "icon": "icons/queens.png",
+    "sourceIcon": "https://chrisawad.github.io/Queens/icons/queens-192.png"
   }
 ]

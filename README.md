@@ -2,7 +2,7 @@
 
 [Play Ultimate Games](https://games.chrisawad.com/)
 
-Games Dashboard is the home for five browser games by [Chris Awad](https://github.com/chrisawad). Choose a game below to play it on its own site. To keep a game on your home screen, open it and use its install action or your browser’s install menu.
+Games Dashboard is the home for browser games by [Chris Awad](https://github.com/chrisawad). Choose a game below to play it on its own site. To keep a game on your home screen, open it and use its install action or your browser’s install menu.
 
 | Game | How to play | Players |
 | --- | --- | --- |
@@ -11,6 +11,7 @@ Games Dashboard is the home for five browser games by [Chris Awad](https://githu
 | <img src="icons/glow-words.png" width="48" height="48" alt=""> [Glow Words](https://words.chrisawad.com/) | Trace hidden words in a glowing letter garden. Choose a reading level, grid size, and word count, then play at your own pace or against the clock. | Solo word search |
 | <img src="icons/tic-tac-toe.png" width="48" height="48" alt=""> [Tic Tac Toe](https://tictactoe.chrisawad.com/) | Line up three marks before your opponent. Challenge T-3PO on three difficulty levels, pass one screen between two players, or invite a friend for a match. | Solo vs AI · Local PvP · Online PvP · Invite link, Room code, QR code |
 | <img src="icons/boxes.png" width="48" height="48" alt=""> [Boxes](https://boxes.chrisawad.com/) | Connect neighboring dots to claim boxes. Closing the fourth side earns another turn. Capture more boxes than your opponent to win. | Solo vs AI · Local PvP · Online PvP · Invite link, Six-character room code, QR code, Public matchmaking |
+| <img src="icons/queens.png" width="48" height="48" alt=""> [Queens](https://queens.chrisawad.com/) | Place seven queens so each row, column, and colored region has exactly one. No two queens may touch, even diagonally. | Solo puzzle |
 
 The [game catalog](catalog.json) includes each game’s play URL, source repository, description, play modes, and launcher artwork. Each icon in [icons](icons) comes from the corresponding game’s published web app manifest.
 
