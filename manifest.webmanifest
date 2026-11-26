@@ -9,6 +9,9 @@
   "display": "standalone",
   "background_color": "#18141f",
   "theme_color": "#18141f",
+  "related_applications": [
+    { "platform": "webapp", "url": "/Games-Dashboard/manifest.webmanifest", "id": "/Games-Dashboard/" }
+  ],
   "icons": [
     { "src": "./icons/ultimate-games-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "./icons/ultimate-games-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },

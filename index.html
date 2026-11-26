@@ -21,11 +21,11 @@
       <div class="topbar-row">
         <p class="topbar-title">Dashboard</p>
         <div class="topbar-actions">
-          <button class="bar-button" id="install" type="button" hidden>
+          <button class="bar-button" id="install" type="button" aria-controls="install-help" hidden>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/>
             </svg>
-            Install app
+            <span id="install-label">Install app</span>
           </button>
           <button class="bar-button share-button" id="share" type="button" hidden>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
@@ -38,6 +38,12 @@
           </button>
         </div>
       </div>
+      <section class="install-help" id="install-help" aria-labelledby="install-heading" hidden>
+        <h2 id="install-heading">Install Games Dashboard</h2>
+        <p id="install-directions"></p>
+        <p>If this window has no browser menu, copy <a href="https://games.chrisawad.com/">games.chrisawad.com</a> and open it in your browser.</p>
+        <button class="bar-button" id="dismiss-install-help" type="button">Done</button>
+      </section>
       <p class="bar-status" id="install-status" role="status"></p>
       <p class="bar-status" id="share-status" role="status"></p>
       <input id="share-link" type="url" aria-label="Dashboard link to copy" readonly hidden>

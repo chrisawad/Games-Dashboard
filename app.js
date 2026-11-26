@@ -27,7 +27,10 @@ function makeCard(game) {
     fillList(card.querySelector(".join-options"), game.onlineJoin);
   }
   const playLink = card.querySelector(".play");
-  playLink.href = game.playUrl;
+  const launchUrl = new URL(game.playUrl);
+  // A fragment survives the branded redirects even when they drop query parameters.
+  if (!launchUrl.hash) launchUrl.hash = "from=games-dashboard";
+  playLink.href = launchUrl.href;
   playLink.setAttribute("aria-label", "Play " + game.title);
   const sourceLink = card.querySelector(".source");
   sourceLink.href = game.repositoryUrl;
@@ -61,13 +64,39 @@ loadCatalog().catch(() => {
 
 const installButton = document.querySelector("#install");
 const installStatus = document.querySelector("#install-status");
+const installHelp = document.querySelector("#install-help");
+const dismissInstallHelp = document.querySelector("#dismiss-install-help");
+const installLabel = document.querySelector("#install-label");
+const appleMobile = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const android = /Android/i.test(navigator.userAgent);
+const framed = window.self !== window.top;
 const standalone = window.matchMedia("(display-mode: standalone)");
 let installPrompt;
 let installed = false;
+let listedAsInstalled = false;
+let nativeInstallFailed = false;
+let helpOpen = appleMobile || android || framed;
+
+document.querySelector("#install-directions").textContent = appleMobile
+  ? "Open the dashboard in Safari, tap Share, then Add to Home Screen. Turn on Open as Web App if offered, then tap Add."
+  : android
+    ? "Open the dashboard in Chrome. In the ⋮ menu, choose Install app or Add to Home screen, then Install."
+    : "Open the dashboard in your browser and choose its install option. In Safari on Mac, choose File → Add to Dock.";
+
+function canInstall() {
+  return !framed && (Boolean(installPrompt) ||
+    (window.isSecureContext && !nativeInstallFailed && typeof navigator.install === "function"));
+}
 
 function updateInstallButton() {
-  const canPrompt = typeof navigator.install === "function" || Boolean(installPrompt);
-  installButton.hidden = !canPrompt || installed || standalone.matches || navigator.standalone === true;
+  const inInstalledWindow = !framed && (standalone.matches || navigator.standalone === true);
+  const native = canInstall();
+  installButton.hidden = installed || listedAsInstalled || inInstalledWindow;
+  installHelp.hidden = installButton.hidden || !helpOpen || Boolean(installPrompt && !framed);
+  installLabel.textContent = native ? "Install app" : "Install help";
+  if (native) installButton.removeAttribute("aria-expanded");
+  else installButton.setAttribute("aria-expanded", String(!installHelp.hidden));
 }
 
 window.addEventListener("beforeinstallprompt", event => {
@@ -84,23 +113,52 @@ window.addEventListener("appinstalled", () => {
 standalone.addEventListener("change", updateInstallButton);
 updateInstallButton();
 
+async function checkDashboardInstallation() {
+  if (typeof navigator.getInstalledRelatedApps !== "function") return;
+  try {
+    const manifest = document.querySelector('link[rel="manifest"]').href;
+    const id = new URL("./", manifest).href;
+    const apps = await navigator.getInstalledRelatedApps();
+    listedAsInstalled = apps.some(app => app.platform === "webapp" && (app.id === id || app.url === manifest));
+    updateInstallButton();
+  } catch {
+    // Embedded browsers may restrict the lookup. Keep the instructions available.
+  }
+}
+checkDashboardInstallation();
+window.addEventListener("focus", checkDashboardInstallation);
+
+dismissInstallHelp.addEventListener("click", () => {
+  helpOpen = false;
+  updateInstallButton();
+  installButton.focus();
+});
+
 installButton.addEventListener("click", async () => {
   if (installButton.getAttribute("aria-disabled") === "true") return;
+  if (!canInstall()) {
+    helpOpen = !helpOpen;
+    updateInstallButton();
+    return;
+  }
   installButton.setAttribute("aria-disabled", "true");
   installStatus.textContent = "";
   try {
-    if (typeof navigator.install === "function") {
-      await navigator.install();
-      installed = true;
-    } else if (installPrompt) {
+    if (installPrompt) {
       const prompt = installPrompt;
       installPrompt = undefined;
       await prompt.prompt();
       const choice = await prompt.userChoice;
       if (choice.outcome === "accepted") installed = true;
+    } else {
+      await navigator.install();
+      installed = true;
     }
   } catch (error) {
-    if (error.name !== "AbortError") installStatus.textContent = "Try installing from your browser’s menu.";
+    if (error.name !== "AbortError") {
+      nativeInstallFailed = true;
+      helpOpen = true;
+    }
   } finally {
     installButton.removeAttribute("aria-disabled");
     updateInstallButton();

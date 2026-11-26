@@ -58,6 +58,17 @@ a { color: var(--lavender); text-underline-offset: .22em; }
 .topbar-actions { flex-shrink: 0; gap: .5rem; }
 .bar-status { margin: 0; text-align: right; color: #efe2ff; }
 .bar-status:not(:empty) { margin-top: .5rem; }
+.install-help {
+  max-width: 38rem;
+  margin: .75rem 0 0 auto;
+  padding: .85rem 1rem;
+  border: 1px solid var(--edge);
+  border-radius: .65rem;
+  background: #241c30;
+}
+.install-help h2 { font-size: 1.1rem; }
+.install-help p { margin: .35rem 0 0; color: var(--muted); }
+.install-help button { margin-top: .65rem; }
 #share-link {
   display: block;
   width: min(100%, 25rem);
