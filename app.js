@@ -92,9 +92,9 @@ function canInstall() {
 
 function updateInstallButton() {
   const inInstalledWindow = dashboardLaunch && !framed && (standalone.matches || navigator.standalone === true);
-  const native = canInstall();
+  const native = canInstall() || installButton.getAttribute("aria-disabled") === "true";
   installButton.hidden = installed || listedAsInstalled || inInstalledWindow;
-  installHelp.hidden = installButton.hidden || !helpOpen || Boolean(installPrompt && !framed);
+  installHelp.hidden = installButton.hidden || !helpOpen || native;
   installLabel.textContent = native ? "Install app" : "Install help";
   if (native) installButton.removeAttribute("aria-expanded");
   else installButton.setAttribute("aria-expanded", String(!installHelp.hidden));
@@ -143,6 +143,7 @@ installButton.addEventListener("click", async () => {
     return;
   }
   installButton.setAttribute("aria-disabled", "true");
+  helpOpen = false;
   installStatus.textContent = "";
   try {
     if (installPrompt) {
