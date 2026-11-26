@@ -85,5 +85,17 @@
     "repositoryUrl": "https://github.com/chrisawad/Queens",
     "icon": "icons/queens.png",
     "sourceIcon": "https://chrisawad.github.io/Queens/icons/queens-192.png"
+  },
+  {
+    "id": "glow-trail",
+    "title": "Glow Trail",
+    "description": "Draw one continuous path through the numbered dots in order. Move up, down, left, or right and visit every cell exactly once.",
+    "modes": [
+      "Solo puzzle"
+    ],
+    "playUrl": "https://glowtrail.chrisawad.com/",
+    "repositoryUrl": "https://github.com/chrisawad/Glow-Trail",
+    "icon": "icons/glow-trail.png",
+    "sourceIcon": "https://chrisawad.github.io/Glow-Trail/icons/icon-192.png"
   }
 ]

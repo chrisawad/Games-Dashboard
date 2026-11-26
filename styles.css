@@ -163,6 +163,7 @@ select {
 [data-game="tic-tac-toe"] .cover { background-image: url("./assets/tic-tac-toe-cover.png"); }
 [data-game="boxes"] .cover { background-image: url("./assets/boxes-cover.png"); }
 [data-game="queens"] .cover { background-image: url("./assets/queens-cover.webp"); }
+[data-game="glow-trail"] .cover { background-image: url("./assets/glow-trail-cover.png"); }
 .game-icon {
   width: 6.25rem; height: 6.25rem; object-fit: contain; border-radius: 23%;
   box-shadow: 0 0 0 1px #ffffff40, 0 7px 0 -2px #1d122c55, 0 12px 22px #100e2252;

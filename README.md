@@ -12,6 +12,7 @@ Games Dashboard is the home for browser games by [Chris Awad](https://github.com
 | <img src="icons/tic-tac-toe.png" width="48" height="48" alt=""> [Tic Tac Toe](https://tictactoe.chrisawad.com/) | Line up three marks before your opponent. Challenge T-3PO on three difficulty levels, pass one screen between two players, or invite a friend for a match. | Solo vs AI · Local PvP · Online PvP · Invite link, Room code, QR code |
 | <img src="icons/boxes.png" width="48" height="48" alt=""> [Boxes](https://boxes.chrisawad.com/) | Connect neighboring dots to claim boxes. Closing the fourth side earns another turn. Capture more boxes than your opponent to win. | Solo vs AI · Local PvP · Online PvP · Invite link, Six-character room code, QR code, Public matchmaking |
 | <img src="icons/queens.png" width="48" height="48" alt=""> [Queens](https://queens.chrisawad.com/) | Place seven queens so each row, column, and colored region has exactly one. No two queens may touch, even diagonally. | Solo puzzle |
+| <img src="icons/glow-trail.png" width="48" height="48" alt=""> [Glow Trail](https://glowtrail.chrisawad.com/) | Draw one continuous path through the numbered dots in order. Move up, down, left, or right and visit every cell exactly once. | Solo puzzle |
 
 The [game catalog](catalog.json) includes each game’s play URL, source repository, description, play modes, and launcher artwork. Each icon in [icons](icons) comes from the corresponding game’s published web app manifest.
 
